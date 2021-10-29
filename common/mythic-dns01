@@ -47,6 +47,7 @@ call_api() {
                 # use DNS API v2
                 case $action in
                     ADD)
+                        # Use POST here rather than PUT as we may handle multiple challenges in a single run - for example both '*' and bare domain.
                         echo -n "user = ${dns_api_pass}:${dns_api_secret}" |
                             curl -f -K - -X POST "https://api.mythic-beasts.com/dns/v2/zones/${dns_domain}/records/${rr_part}/TXT" -d data="${val}"
                             if [ $? -ne 0 ]; then
