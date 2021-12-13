@@ -27,13 +27,22 @@ a TXT record with the hostname '_acme-challenge' for each domain that requires a
 certificate.
 
 Then create the file `/etc/dehydrated/dnsapi.config.txt` containing your domain
-name and password or DNS API tokens. You can add multiple domains, one per line:
+name and API credentials.  If you're using DNS API v2, each line should consist
+of a domain name, the API Key ID and the API Key Secret, separated by spaces:
 
 ````
+example.org ahneeWi0aePo2siH aetaj-o2bohshaev8aiDae0Suujoow
+example.com ahneeWi0aePo2siH aetaj-o2bohshaev8aiDae0Suujoow
+````
+
+If you use the same key for multiple domains, you should repeat the key details, as shown above.
+
+If you are using DNS API v1, each line should be the domain name followed by the API Key password:
+
+```
 example.net myS3cretPassword
 example.com myOtherS3cretPassword
-example.org ahneeWi0aePo2siH aetaj-o2bohshaev8aiDae0Suujoow
-````
+```
 
 To tell `dehydrated` to use the hook script, provide its path via the `-k`
 option. You will also need `-t dns-01` to use DNS-01 validation:
