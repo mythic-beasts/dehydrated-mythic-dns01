@@ -34,6 +34,9 @@ call_api() {
     local action key val dns_domain dns_api_pass rr_part dns_api_secret
     action="$1" key="$2" val="$3"
     while read dns_domain dns_api_pass dns_api_secret; do
+        # Skip blank lines in config
+        [ -z "$dns_domain" ] && continue
+
         case $key in
         *$dns_domain)
             rr_part=$(basename $key .$dns_domain)
