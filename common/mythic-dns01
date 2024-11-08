@@ -1,6 +1,7 @@
 # Copyright (C) Mythic Beasts Ltd 2018
 
 CONFIG=${MYTHIC_DNS_CONFIG:-/etc/dehydrated/dnsapi.config.txt}
+CNAME_MAP=${MYTHIC_DNS_CNAME_MAP:-/etc/dehydrated/dnsapi.cname-map.txt}
 
 # configure the busy wait loop; max time is $SLEEP * $MAXTRIES
 SLEEP=5
@@ -31,8 +32,16 @@ wait_for_dns() {
 }
 
 call_api() {
-    local action key val dns_domain dns_api_pass rr_part dns_api_secret
+    local action key val dns_domain dns_api_pass rr_part dns_api_secret cname_host cname_target
     action="$1" key="$2" val="$3"
+    if [ -e "$CNAME_MAP" ]; then
+       while read cname_host cname_target; do
+           if [ "$key" = "$cname_host" ]; then
+                echo "Updating CNAME target $cname_target"
+                key="$cname_target"
+            fi
+       done < $CNAME_MAP
+    fi
     while read dns_domain dns_api_pass dns_api_secret; do
         # Skip blank lines in config
         [ -z "$dns_domain" ] && continue

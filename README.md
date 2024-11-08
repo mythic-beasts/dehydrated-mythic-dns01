@@ -69,3 +69,20 @@ for d in common clean-challenge deploy-challenge; do
     ln -s $d/mythic-dns01 /etc/dehydrated/hooks/$d
 done
 ````
+
+This script also supports obtaining certificates for domains not hosted
+on Mythic Beasts' DNS service, by adding a CNAME on the `_acme-challenge`
+subdomain, pointing to a zone that is hosted with Mythic Beasts.
+
+For example, if you had a domain `example.com` you could add:
+
+```
+_acme-challenge.example.com CNAME example-com-acme.dns-zone-on.mythic-beasts.com
+```
+
+Then you can specify to update the CNAME target in `/etc/dehydrated/dnsapi.cname-map.txt`:
+```
+_acme-challenge.example.com example-com-acme.dns-zone-on.mythic-beasts.com
+```
+
+The TXT challenge response records will then be added to the CNAME target.
