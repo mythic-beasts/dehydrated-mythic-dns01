@@ -1,3 +1,9 @@
+dehydrated-mythic-dns01 (0.5) unstable; urgency=medium
+
+  * add support for updating CNAME targets
+
+ -- Tim Stallard <tim@mythic-beasts.com>  Mon, 11 Nov 2024 11:59:38 +0000
+
 dehydrated-mythic-dns01 (0.4) unstable; urgency=medium
 
   * Ignore blank lines in dnsapi.config.txt
