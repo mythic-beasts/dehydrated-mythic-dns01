@@ -1,3 +1,9 @@
+dehydrated-mythic-dns01 (0.5.2) unstable; urgency=medium
+
+  * make new variables local
+
+ -- Tim Stallard <tim@mythic-beasts.com>  Mon, 11 Nov 2024 12:50:24 +0000
+
 dehydrated-mythic-dns01 (0.5.1) unstable; urgency=medium
 
   * fix DNS wait check to also use CNAME target
