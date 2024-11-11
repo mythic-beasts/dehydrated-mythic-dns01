@@ -14,7 +14,7 @@ SERVERS="ns1.mythic-beasts.com ns2.mythic-beasts.com"
 DIGOPT='+time=1 +tries=1 +short'
 
 wait_for_dns() {
-    local key val i s
+    local key val i s cname_host cname_target
     key="$1" val="$2"
     if [ -e "$CNAME_MAP" ]; then
         while read cname_host cname_target; do
