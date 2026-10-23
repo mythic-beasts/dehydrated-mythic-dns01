@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Copyright (C) 2018 Mythic Beasts Ltd
+# This script is licensed under The MIT License (see LICENCE.txt)
 
 . "$(dirname "$0")"/../common/mythic-dns01
 

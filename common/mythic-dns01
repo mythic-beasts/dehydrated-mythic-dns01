@@ -1,4 +1,5 @@
 # Copyright (C) Mythic Beasts Ltd 2018
+# This script is licensed under The MIT License (see LICENCE.txt)
 
 CONFIG=${MYTHIC_DNS_CONFIG:-/etc/dehydrated/dnsapi.config.txt}
 CNAME_MAP=${MYTHIC_DNS_CNAME_MAP:-/etc/dehydrated/dnsapi.cname-map.txt}

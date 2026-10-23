@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Copyright (c) 2018 Mythic Beasts Ltd
+# This script is licensed under The MIT License (see LICENCE.txt)
 
 group_args() {
     local nl=$'\n'

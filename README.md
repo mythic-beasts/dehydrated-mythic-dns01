@@ -14,7 +14,8 @@ A [step-by-step guide](https://www.mythic-beasts.com/support/domains/letsencrypt
 to using this script can be found on the [Mythic Beasts](https://www.mythic-beasts.com/)
 website.
 
-The script was originally written by [David Earl](https://github.com/davidearl).
+The script was originally written by [David Earl](https://github.com/davidearl),
+and is licensed under the [MIT licence](LICENCE.txt).
 
 Usage
 -----
